@@ -91,12 +91,16 @@ services:
       options:
         max-size: "10m"
         max-file: "3"
+    networks:
+      - frontend
+      - backend
+    depends_on:
+      - web
     ports:
       - "80:80"
       - "443:443"
     volumes:
       - ./caddy/Caddyfile:/etc/caddy/Caddyfile
-      - ../var/www:/var/www
       - caddy_config:/config
     environment:
       ACME_AGREE: "true"
