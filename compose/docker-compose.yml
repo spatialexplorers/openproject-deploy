@@ -49,6 +49,8 @@ services:
   web:
     <<: *app
     command: "./docker/prod/web"
+    expose:
+      - "8080"
     networks:
       - frontend
       - backend
