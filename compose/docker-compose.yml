@@ -46,19 +46,6 @@ services:
     networks:
       - backend
 
-  proxy:
-    <<: [*image, *restart_policy]
-    command: "./docker/prod/proxy"
-    ports:
-      - "${PORT:-8080}:80"
-    environment:
-      APP_HOST: web
-      OPENPROJECT_RAILS__RELATIVE__URL__ROOT: "${OPENPROJECT_RAILS__RELATIVE__URL__ROOT:-}"
-    depends_on:
-      - web
-    networks:
-      - frontend
-
   web:
     <<: *app
     command: "./docker/prod/web"

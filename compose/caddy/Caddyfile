@@ -1,9 +1,9 @@
 
 
 starlord.spatialexplorers.com {
-  tls devops@zichtopoverheid.nl
+  tls devops@spatialexplorers.nl
 
-  reverse_proxy proxy:8080 {
+  reverse_proxy web:8080 {
     header_down Access-Control-Allow-Origin "*"
   }
 }
